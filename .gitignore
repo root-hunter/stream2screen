@@ -4,6 +4,6 @@ build/*
 dist/*
 specs/*
 .vscode
-__pycache__/
+**/__pycache__/**
 .vscode/
 specs/
