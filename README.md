@@ -21,7 +21,7 @@ make test-build
 ./s2s -i (M3U8 FILE_PATH/URL) -o (OUTPUT_DIR_PATH) -k [DECRYPT_KEY FILE_PATH/URL (Optional)] 
 ```
 
-# Download Any Content Using .m3u8
+## Download Any Content Using .m3u8
 Stream2Screen (s2s) provides a powerful feature that enables you to download virtually any content that utilizes .m3u8 playlists, even if it is typically behind a paywall or requires a subscription. By leveraging the functionality of s2s, you can access and download the media files associated with the .m3u8 playlist.
 
 With s2s, you can bypass restrictions and limitations, allowing you to download content such as live streams, TV shows, movies, and more. By providing the link to the .m3u8 playlist, s2s will download all the associated .ts files and merge them seamlessly, creating a complete video file that you can save and enjoy offline.
