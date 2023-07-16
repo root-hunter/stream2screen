@@ -16,9 +16,9 @@ async def start(args, m3u8_url, key_url, output_folder):
 
     data = get_m3u8(m3u8_url)
 
-    if m3u8_url["type"] == 'url' and args.save_m3u8 == True:
+    if m3u8_url["type"] == "url" and args.save_m3u8 == True:
         m3u8_file_path = os.path.join(output_folder, "playlist.m3u8")
-        print(m3u8_file_path)
+
         with open(m3u8_file_path, "w") as f:
             f.write(data)
 
@@ -27,11 +27,12 @@ async def start(args, m3u8_url, key_url, output_folder):
         iv_val = data_split[1][2:]
         key_url = parse_string(key_url)
 
-
-
     urls = re.sub(REG_SUB, "", data)
-    urls = [url for url in urls.split("\n") if url != ""]
-    print(urls)
+    urls = [url for url in urls.split("\n") if re.match('((https)||(http)):.*', url)]
+
+    print(iv_val)
+#    with Progress() as progress:
+#        task1 = progress.add_task("[red]Downloading...", total=len(urls))
 
     dowload_ts_playlist(args, key_url, output_folder, iv_val, urls)
     print("Success downloading playlist")
@@ -46,4 +47,3 @@ async def start(args, m3u8_url, key_url, output_folder):
     ts_files = sort_array_by_other(ts_files, ts_indexs)
     compact_ts(ts_files, output_ts_path)
     convert_ts(args, output_folder, output_ts_path, output_mp4_path)
-

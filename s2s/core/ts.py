@@ -5,7 +5,7 @@ from Crypto.Cipher import AES
 from .utils import divide_chunks, get_binary, get_key
 
 def decrypt_ts(data, key, iv):
-    """Decrypt using AES CBC"""
+    # Decrypts TS data using AES encryption
     decryptor = AES.new(key, AES.MODE_CBC, IV=iv)
     return decryptor.decrypt(data)
 
@@ -25,17 +25,18 @@ def convert_ts(args, output_folder, output_ts_path, output_mp4_path):
         output_mp4_path,
     ]
     with open(log_file_path, "w") as log_out:
+        # Run ffmpeg command to convert TS to MP4
         result = subprocess.run(ffmpeg_command, stdout=log_out, text=True)
         print("Result code: {}".format(result))
     log_out.close()
     os.remove(output_ts_path)
 
 
-
 def compact_ts(ts_files, output_file_path):
     with open(output_file_path, "wb") as output:
         for ts_file_path in ts_files:
-            print(ts_file_path)
+            # Concatenate TS files into a single output file
+            # print(ts_file_path)
             ts_file = open(ts_file_path, "rb")
             ts_data = ts_file.read()
 
@@ -50,7 +51,6 @@ def dowload_ts(args, key_path, output_folder, iv_val, urls):
     for url in urls:
         file_name = os.path.basename(url).split("?")[0]
         print('Downloading "%s"' % file_name)
-        # download key and data
         enc_data = get_binary(url)
 
         iv = None
@@ -65,7 +65,6 @@ def dowload_ts(args, key_path, output_folder, iv_val, urls):
                     f.close()
             iv = bytes.fromhex(iv_val)
 
-        # save decrypted data to file
         out_file = os.path.join(output_folder, "%s" % file_name)
         with open(out_file, "wb") as output:
             if iv != None and key_data != None:

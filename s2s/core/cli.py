@@ -1,13 +1,12 @@
 import argparse
 import os
 
-
 def get_args():
     parser = argparse.ArgumentParser(
         description="Download .ts file from m3u8 file and export to video with ffmpeg."
     )
 
-    parser.usage = "python3 download.py -i ./griffin.m3u8 -o ./griffin_mp4 -k ./enc.key"
+    parser.usage = "s2s -i ./griffin.m3u8 -o ./griffin_mp4 -k ./enc.key"
 
     parser.add_argument(
         "-i", "--input", help="Input m3u8 file/URL", required=True, type=str
@@ -46,6 +45,5 @@ def get_args():
     )
 
     args = parser.parse_args()
-    print(args.save_m3u8)
 
     return args

@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import asyncio
+
+from rich.progress import track
+
 from core.cli import get_args
 from core.download import start
 

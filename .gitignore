@@ -1,2 +1,5 @@
 downloads
 test
+build/*
+dist/*
+.vscode
