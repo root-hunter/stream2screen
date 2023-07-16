@@ -2,7 +2,14 @@
 Stream2Screen (s2s) is a Python library that allows you to download and process .ts MPEG files and .m3u8 playlists. It provides functionality to handle encrypted .ts files using AES encryption. With this library, you can easily download all associated .ts files from a given link or .m3u8 file, merge them, and export them as a single video using FFmpeg.
 
 ## Usage Example
-
+1) Build
+```
+make build
+```
+2) Use it!
+```
+./s2s -i (M3U8 FILE_PATH/URL) -o (OUTPUT_DIR_PATH) -k [DECRYPT_KEY FILE_PATH/URL (Optional)] 
+```
 
 # Download Any Content Using .m3u8
 Stream2Screen (s2s) provides a powerful feature that enables you to download virtually any content that utilizes .m3u8 playlists, even if it is typically behind a paywall or requires a subscription. By leveraging the functionality of s2s, you can access and download the media files associated with the .m3u8 playlist.
