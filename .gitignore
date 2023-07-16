@@ -5,3 +5,4 @@ dist/*
 specs/*
 .vscode
 __pycache__/
+.vscode/
