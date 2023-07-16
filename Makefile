@@ -14,4 +14,6 @@ test-build: build
 test:
 	python3 ${S2S_TEST_COMMAND}
 
+generate-requirements:
+	conda list -e > requirements.txt
 
