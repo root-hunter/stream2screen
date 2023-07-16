@@ -6,3 +6,4 @@ specs/*
 .vscode
 __pycache__/
 .vscode/
+specs/
